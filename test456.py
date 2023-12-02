@@ -22,8 +22,8 @@ header = {
 }
 data = {
     'userid': 123123,
-    'cloth': f'{base_url}/static/cloth/00458_00.jpg',
-    'person': f'{base_url}/static/person/01296_00.jpg'
+    'cloth': f'{base_url}/static/cloth/00462_00.jpg',
+    'person': f'{base_url}/static/person/01216_00.jpg'
 }
 # data = {
 #     "userid": 123123,

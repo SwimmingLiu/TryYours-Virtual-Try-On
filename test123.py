@@ -3,7 +3,6 @@ import json
 from PIL import Image
 import io
 import requests
-
 base_url = "https://certain-ideally-foal.ngrok-free.app"
 url = f"{base_url}/tryon/predict/"
 header = {
@@ -22,8 +21,8 @@ header = {
 }
 data = {
     'userid': 123123,
-    'cloth': f'{base_url}/static/cloth/00458_00.jpg',
-    'person': f'{base_url}/static/person/01296_00.jpg'
+    'cloth': 'https://i.imgs.ovh/2023/11/29/pc0GN.jpeg',
+    'person': 'https://i.imgs.ovh/2023/11/29/pcIpR.jpeg'
 }
 # data = {
 #     "userid": 123123,
