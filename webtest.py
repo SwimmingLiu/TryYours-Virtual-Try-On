@@ -9,6 +9,7 @@ from PIL import Image
 import os
 import sys
 from AnimeGAN.model import anime_model
+from main import PredictModule
 from utils import DataResult, get_image_base64, download_and_save_image
 from pyngrok import ngrok
 
@@ -26,7 +27,7 @@ if app.config["USE_NGROK"]:
     port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else "5000"
 
     # Open a ngrok tunnel to the dev server
-    public_url = ngrok.connect(port,domain="certain-ideally-foal.ngrok-free.app").public_url
+    public_url = ngrok.connect(port, domain="certain-ideally-foal.ngrok-free.app").public_url
     print(" * ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}\"".format(public_url, port))
 
     # Update any base URLs or webhooks to use the public ngrok URL
@@ -63,9 +64,8 @@ def tryon_predict():
             if not download_and_save_image(image_url=person, save_path=person_path):
                 result.fail()
                 return result.toJson()
-
-            terminnal_command = "python main.py"
-            os.system(terminnal_command)
+            main_predict = PredictModule()
+            main_predict.main()
 
             final_image_path = "static/finalimg.png"
             image_value = get_image_base64(final_image_path)
