@@ -9,6 +9,7 @@ from PIL import Image
 import os
 import sys
 from AnimeGAN.model import anime_model
+from AnimeGANv3.model import animev3_model
 from main import PredictModule
 from utils import DataResult, get_image_base64, download_and_save_image
 from pyngrok import ngrok
@@ -98,7 +99,8 @@ def anime_predict():
                 result.fail()
                 return result.toJson()
             final_image_path = "static/anime_processed.png"
-            anime_model(origin_image_path, final_image_path)
+            animev3_model(origin_image_path, final_image_path)
+            # anime_model(origin_image_path, final_image_path)
             image_value = get_image_base64(final_image_path)
             result.data = {
                 'image_value': image_value
